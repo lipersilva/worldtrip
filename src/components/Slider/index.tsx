@@ -2,11 +2,12 @@ import { Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { ContinentProps } from "../../pages";
 
 SwiperCore.use([Navigation, Pagination, A11y])
 
 
-export default function Slider(){
+export default function Slider({ continents }: ContinentProps){
   return(
     <Flex
       w="100%" 
@@ -25,72 +26,29 @@ export default function Slider(){
         }}
         style={{width: '100%', flex: '1'}}
       >
-        <SwiperSlide>
+        {continents.map(continent => (
+          <SwiperSlide key={continent.title}>
           <Flex
             w="100%"
             h="100%"
             align="center"
             justify="center"
             direction="column"
-            bgImage="url(/europe.png)"
+            bgImage={`url(${continent.image})`}
             bgRepeat="no-repeat"
             bgSize="cover"
             textAlign="center"
             bgPosition="center"
           >
-            <Link href="/continent/europe">
+            <Link href={`/continent/${continent.slug}`}>
               <a>
-                <Heading
-                  fontSize={["3xl","4xl","5xl"]}
-                  color="gray.100"
-                  fontWeight="bold"
-                >
-                  Europe
-                </Heading>
-                <Text 
-                  fontWeight="bold" 
-                  color="gray.300" 
-                  fontSize={["0.8rem","1xl","2xl"]}
-                  mt={["2", "4"]}
-                >
-                  O continente mais antigo</Text>
+                <Heading fontSize={["3xl","4xl","5xl"]} color="gray.100" fontWeight="bold">{continent.title}</Heading>
+                <Text fontWeight="bold" color="gray.300" fontSize={["0.8rem","1xl","2xl"]} mt={["2", "4"]}>{continent.summary}</Text>
               </a>
             </Link>
           </Flex>
         </SwiperSlide>
-        <SwiperSlide>
-          <Flex
-            w="100%"
-            h="100%"
-            align="center"
-            justify="center"
-            direction="column"
-            bgImage="url(/europe.png)"
-            bgRepeat="no-repeat"
-            bgSize="cover"
-            textAlign="center"
-            bgPosition="center"
-          >
-            <Link href="/continent/europe">
-              <a>
-                <Heading
-                  fontSize={["3xl","4xl","5xl"]}
-                  color="gray.100"
-                  fontWeight="bold"
-                >
-                  Europe
-                </Heading>
-                <Text 
-                  fontWeight="bold" 
-                  color="gray.300" 
-                  fontSize={["0.8rem","1xl","2xl"]}
-                  mt={["2", "4"]}
-                >
-                  O continente mais antigo</Text>
-              </a>
-            </Link>
-          </Flex>
-        </SwiperSlide>
+        ))}
       </Swiper>
     </Flex>
   );
