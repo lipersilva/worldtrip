@@ -39,7 +39,7 @@ export default function Banner(){
         <Image
           w={["300px", "300px", "300px", "430px"]}
           display={['none', 'none', 'block']}
-          src= "/airplane.svg"
+          src= "/Airplane.svg"
           alt="Avião amarelo voando com algumas nuvens ao redor"
           transform="translateY(48px)"
 
