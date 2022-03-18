@@ -7,7 +7,7 @@ export default function TravelTypes(){
       templateColumns={["1fr 1fr", "1fr 1fr", "1fr 1fr", "repeat(5, 1fr)"]}
       w="100%"
       justifyContent="space-between"
-      align="center"
+      //align="center"
       mt={["10","32"]}
       mx="auto"
       maxW="1160px"
