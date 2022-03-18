@@ -8,7 +8,7 @@ import { getPrismicClient } from "../../services/prismic";
 import Prismic from '@prismicio/client'
 import { RichText } from 'prismic-dom'
 import { useRouter } from "next/router";
-import Loading from "../../components/loading";
+import Loading from "../../components/Loading";
 
 export interface ContinentProps {
   continent: {
